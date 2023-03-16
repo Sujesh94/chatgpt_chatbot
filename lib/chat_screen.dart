@@ -36,7 +36,7 @@ class _ChatScreenState extends State<ChatScreen> {
     super.initState();
 
     chatGPT = ChatGPT.instance.builder(
-        "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",
+        "API_KEY",
         orgId: "");
   }
 
@@ -68,7 +68,7 @@ class _ChatScreenState extends State<ChatScreen> {
       final request = GenerateImage(message.text.toString(), 1, size: "256x256");
 
       _subscription = chatGPT
-          ?.builder("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",
+          ?.builder("API_KEY",
               orgId: "")
           .generateImageStream(request)
           .asBroadcastStream()
@@ -81,7 +81,7 @@ class _ChatScreenState extends State<ChatScreen> {
           prompt: message.text.toString() , model: kTranslateModelV3, max_tokens: 200);
 
       _subscription = chatGPT
-          ?.builder("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",
+          ?.builder("API_KEY",
               orgId: "")
           .onCompleteStream(request: request)
           .asBroadcastStream()
